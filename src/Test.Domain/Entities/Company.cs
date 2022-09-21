@@ -24,7 +24,9 @@ public class Company: Entity
         return organization;
     }
     
+#pragma warning disable CS8618
     private Company(
+#pragma warning restore CS8618 // Avoid warning for navigation property
         Guid id,
         string name,
         string code,

@@ -26,7 +26,9 @@ namespace Test.Domain.Entities
             return organization;
         }
 
+#pragma warning disable CS8618
         public Employee(
+#pragma warning restore CS8618 // Avoid warning for navigation property
             Guid id,
             string fullName,
             string idNumber,

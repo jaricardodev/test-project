@@ -10,5 +10,10 @@ namespace Test.DbRepository.Repositories
         public EmployeeRepository(AppDbContext dbContext) : base(dbContext)
         {
         }
+
+        public async Task<bool> EmployeeExistsAsync(string idNumber)
+        {
+            return await DbContext.Set<Employee>().AnyAsync(c => c.IdNumber == idNumber);
+        }
     }
 }
