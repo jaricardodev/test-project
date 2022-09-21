@@ -42,5 +42,5 @@ public class Company: Entity
     public string Name { get; private set; }
     public string Code { get; private set; }
     public bool Active { get; private set; }
-    
+    public List<Employee> Employees { get; set; }
 }
