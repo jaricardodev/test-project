@@ -7,7 +7,7 @@ namespace Test.DbRepository.Repositories
 {
     public class EmployeeRepository : EntityFrameworkRepository<Employee>, IEmployeeRepository
     {
-        protected EmployeeRepository(DbContext dbContext) : base(dbContext)
+        public EmployeeRepository(AppDbContext dbContext) : base(dbContext)
         {
         }
     }

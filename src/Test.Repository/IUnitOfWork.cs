@@ -9,7 +9,8 @@ public interface IUnitOfWork
     /// Add your repository below
     /// </summary>
     ICompanyRepository CompanyRepository { get; }
-    
+    IEmployeeRepository EmployeeRepository { get; }
+
     DatabaseFacade Database { get; }
     IDbContextTransaction? GetCurrentTransaction();
     bool HasActiveTransaction { get; }
