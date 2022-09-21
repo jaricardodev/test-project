@@ -14,25 +14,30 @@ public class UnitOfWork: IUnitOfWork
     private readonly AppDbContext _dbContext;
     private readonly IMediator _mediator;
     private readonly ICompanyRepository _companyRepository;
+    private readonly IEmployeeRepository _employeeRepository;
     
     public UnitOfWork(
         AppDbContext dbContext,
         IMediator mediator,
-        ICompanyRepository companyRepository)
+        ICompanyRepository companyRepository,
+        IEmployeeRepository employeeRepository)
     {
         _dbContext = dbContext;
         _mediator = mediator;
         _companyRepository = companyRepository;
+        _employeeRepository = employeeRepository;
     }
 
     public ICompanyRepository CompanyRepository => _companyRepository;
+    public IEmployeeRepository EmployeeRepository => _employeeRepository;
 
     public DatabaseFacade Database => _dbContext.Database;
     
     public IDbContextTransaction? GetCurrentTransaction() => _currentTransaction;
 
     public bool HasActiveTransaction => _currentTransaction != null;
-    
+
+
     public async Task<IDbContextTransaction?> BeginTransactionAsync()
     {
         if (_currentTransaction != null) return null;
